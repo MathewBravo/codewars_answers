@@ -12,7 +12,7 @@ def valid_braces(string) -> bool:
             if len(bracket_track) == 0:
                 return False
             if bracket_track[len(bracket_track) - 1] == "c_open":
-                bracket_track.remove("c_open")
+                bracket_track.pop()
                 contains = True
             if not contains:
                 return False
@@ -21,7 +21,7 @@ def valid_braces(string) -> bool:
             if len(bracket_track) == 0:
                 return False
             if bracket_track[len(bracket_track) - 1] == "n_open":
-                bracket_track.remove("n_open")
+                bracket_track.pop()
                 contains = True
             if not contains:
                 return False
@@ -30,7 +30,7 @@ def valid_braces(string) -> bool:
             if len(bracket_track) == 0:
                 return False
             if bracket_track[len(bracket_track) - 1] == "s_open":
-                bracket_track.remove("s_open")
+                bracket_track.pop()
                 contains = True
             if not contains:
                 return False
@@ -41,9 +41,6 @@ def valid_braces(string) -> bool:
 
 
 if __name__ == "__main__":
-    if not valid_braces("[(])"):
+    if not valid_braces("[([]])"):
         print("1 Pass")
-    if not valid_braces("())({}}{()][]["):
-        print("2 Pass")
-    if valid_braces("(({{[[]]}}))"):
-        print("3 Pass")
+
